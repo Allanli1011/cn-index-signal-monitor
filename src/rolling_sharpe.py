@@ -228,6 +228,17 @@ def main():
         marker = {"run_date": today.isoformat(), "has_alerts": False,
                   "alert_count": 0, "message": "no realised trades yet"}
         REVIEW_MARKER.write_text(json.dumps(marker, indent=2))
+        # Still write a minimal markdown so the downstream Action step can read it
+        REVIEW_MD.write_text(
+            f"## Weekly Review — {today.isoformat()}\n\n"
+            f"_No realised trades yet — strategies are waiting for their first signal trigger._\n\n"
+            f"Strategies under monitoring:\n"
+            + "\n".join(f"- **{k}** (historical Sharpe {v['sharpe']:.2f}, "
+                        f"{v['pos_year_pct']}% pos years over {v['years']} years)"
+                        for k, v in HISTORICAL.items()),
+            encoding="utf-8",
+        )
+        write_github_outputs(REVIEW_MD.read_text(encoding="utf-8"), marker)
         return 0
 
     df = pd.read_csv(PNL_LOG)
