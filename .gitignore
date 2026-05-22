@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+
+# Data caches (regenerable; signal script fetches fresh)
+data/raw/*.parquet
+data/processed/*.parquet
+
+# Notebooks
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Reports (regenerable; keep small CSVs but ignore large PNGs if desired)
+# reports/*.png        # uncomment if you don't want to commit charts
+
+# Local environment
+.env
+venv/

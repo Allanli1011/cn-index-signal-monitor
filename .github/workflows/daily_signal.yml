@@ -1,0 +1,103 @@
+name: Daily A-Share Signal
+
+on:
+  schedule:
+    # Cron in UTC. 23:00 UTC = 07:00 Beijing next day.
+    # Runs Sun-Thu UTC, which becomes Mon-Fri Beijing morning (before A-share 09:30 open).
+    # US has fully closed by then (US close ~21:00 UTC summer, ~22:00 UTC winter).
+    - cron: "0 23 * * 0-4"
+  workflow_dispatch:
+    # Allow manual trigger from GitHub UI for testing.
+    inputs:
+      capital_cny:
+        description: "Capital basis in CNY (used for position sizing)"
+        required: false
+        default: "1000000"
+
+permissions:
+  contents: write   # to commit signals_log.csv
+  issues: write     # to create issue when a signal triggers
+
+jobs:
+  generate-signal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run daily signal generator
+        id: signal
+        env:
+          CAPITAL_CNY: ${{ inputs.capital_cny || '1000000' }}
+        run: |
+          python src/daily_signal.py
+
+      - name: Read signal marker
+        id: marker
+        run: |
+          if [ -f latest_signal.json ]; then
+            TRIGGERED_COUNT=$(jq -r '.triggered_count // 0' latest_signal.json)
+            SKIPPED=$(jq -r '.skipped // false' latest_signal.json)
+            RUN_DATE=$(jq -r '.run_date' latest_signal.json)
+            TRIGGERED_FUT=$(jq -r '.triggered_futures | join(",")' latest_signal.json)
+            echo "triggered_count=$TRIGGERED_COUNT" >> "$GITHUB_OUTPUT"
+            echo "skipped=$SKIPPED" >> "$GITHUB_OUTPUT"
+            echo "run_date=$RUN_DATE" >> "$GITHUB_OUTPUT"
+            echo "triggered_futures=$TRIGGERED_FUT" >> "$GITHUB_OUTPUT"
+            echo "Triggered count: $TRIGGERED_COUNT"
+            echo "Skipped: $SKIPPED"
+          else
+            echo "No marker file found"
+            exit 1
+          fi
+
+      - name: Commit signal log
+        if: steps.marker.outputs.skipped == 'false'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add signals_log.csv latest_signal.json signal_output.txt signal_output.md
+          if git diff --staged --quiet; then
+            echo "Nothing to commit"
+          else
+            git commit -m "Signal ${{ steps.marker.outputs.run_date }} (triggered=${{ steps.marker.outputs.triggered_count }})"
+            git push
+          fi
+
+      - name: Create issue if signal triggered
+        if: steps.marker.outputs.triggered_count != '0' && steps.marker.outputs.skipped == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const md = fs.readFileSync('signal_output.md', 'utf8');
+            const marker = JSON.parse(fs.readFileSync('latest_signal.json', 'utf8'));
+            const futStr = marker.triggered_futures.join(' + ');
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `[Signal ${marker.run_date}] ${futStr} 触发 (${marker.triggered_count}/4)`,
+              body: md,
+              labels: ['signal', 'auto-generated']
+            });
+            core.notice(`Created issue for ${marker.triggered_count} triggered signal(s)`);
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "Run date: ${{ steps.marker.outputs.run_date }}"
+          echo "Skipped: ${{ steps.marker.outputs.skipped }}"
+          echo "Triggered: ${{ steps.marker.outputs.triggered_count }} / 4"
+          echo "Futures: ${{ steps.marker.outputs.triggered_futures }}"

@@ -1,0 +1,114 @@
+name: Post-Market PnL
+
+on:
+  schedule:
+    # 08:30 UTC = 16:30 Beijing (30 min after A-share 15:00 close).
+    # Mon-Fri UTC corresponds to Mon-Fri Beijing.
+    - cron: "30 8 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write   # commit realized_pnl_log.csv
+  issues: write     # comment on morning signal Issue
+
+jobs:
+  record-pnl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Pull latest commits (signal log + marker)
+        run: |
+          git pull --rebase origin main || true
+
+      - name: Run post-market PnL
+        id: pnl
+        run: |
+          python src/post_market_pnl.py
+
+      - name: Read PnL marker
+        id: marker
+        run: |
+          if [ -f latest_pnl.json ]; then
+            TRADES_COUNT=$(jq -r '.trades_count // 0' latest_pnl.json)
+            SKIPPED=$(jq -r '.skipped // false' latest_pnl.json)
+            NET_PNL=$(jq -r '.net_pnl_cny // 0' latest_pnl.json)
+            RUN_DATE=$(jq -r '.run_date' latest_pnl.json)
+            SIGNAL_TITLE=$(jq -r '.signal_issue_title // ""' latest_pnl.json)
+            echo "trades_count=$TRADES_COUNT" >> "$GITHUB_OUTPUT"
+            echo "skipped=$SKIPPED" >> "$GITHUB_OUTPUT"
+            echo "net_pnl_cny=$NET_PNL" >> "$GITHUB_OUTPUT"
+            echo "run_date=$RUN_DATE" >> "$GITHUB_OUTPUT"
+            echo "signal_issue_title=$SIGNAL_TITLE" >> "$GITHUB_OUTPUT"
+          else
+            echo "No PnL marker found"
+            exit 0
+          fi
+
+      - name: Commit PnL log
+        if: steps.marker.outputs.trades_count != '0' && steps.marker.outputs.trades_count != ''
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add realized_pnl_log.csv latest_pnl.json pnl_output.txt pnl_output.md
+          if git diff --staged --quiet; then
+            echo "Nothing to commit"
+          else
+            git commit -m "PnL ${{ steps.marker.outputs.run_date }} (trades=${{ steps.marker.outputs.trades_count }}, net=${{ steps.marker.outputs.net_pnl_cny }} CNY)"
+            git push
+          fi
+
+      - name: Comment on morning signal Issue
+        if: steps.marker.outputs.trades_count != '0' && steps.marker.outputs.trades_count != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const md = fs.readFileSync('pnl_output.md', 'utf8');
+            const title = `${{ steps.marker.outputs.signal_issue_title }}`;
+            if (!title) {
+              core.warning('No signal_issue_title; skipping comment');
+              return;
+            }
+            // Find the open issue with this title
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'signal',
+            });
+            const match = issues.data.find(i => i.title === title);
+            if (!match) {
+              core.warning(`No matching open issue: ${title}`);
+              return;
+            }
+            await github.rest.issues.createComment({
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: match.number,
+              body: md,
+            });
+            // Close the issue after recording PnL
+            await github.rest.issues.update({
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: match.number,
+              state: 'closed',
+            });
+            core.notice(`Commented + closed issue #${match.number}`);
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "Trades recorded: ${{ steps.marker.outputs.trades_count }}"
+          echo "Net PnL: ${{ steps.marker.outputs.net_pnl_cny }} CNY"
+          echo "Run date: ${{ steps.marker.outputs.run_date }}"

@@ -1,0 +1,91 @@
+name: Weekly Review (Rolling Sharpe)
+
+on:
+  schedule:
+    # 09:30 UTC Friday = 17:30 Beijing Friday (after market close, after PnL job)
+    - cron: "30 9 * * 5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  weekly-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Pull latest commits
+        run: |
+          git pull --rebase origin main || true
+
+      - name: Run rolling Sharpe monitor
+        id: review
+        run: |
+          python src/rolling_sharpe.py
+
+      - name: Read review marker
+        id: marker
+        run: |
+          if [ -f weekly_review.json ]; then
+            HAS_ALERTS=$(jq -r '.has_alerts // false' weekly_review.json)
+            ALERT_COUNT=$(jq -r '.alert_count // 0' weekly_review.json)
+            RUN_DATE=$(jq -r '.run_date' weekly_review.json)
+            echo "has_alerts=$HAS_ALERTS" >> "$GITHUB_OUTPUT"
+            echo "alert_count=$ALERT_COUNT" >> "$GITHUB_OUTPUT"
+            echo "run_date=$RUN_DATE" >> "$GITHUB_OUTPUT"
+          else
+            echo "No review marker"
+            exit 0
+          fi
+
+      - name: Commit review artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add weekly_review.md weekly_review.json rolling_sharpe.png cumulative_pnl.png 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "Nothing to commit"
+          else
+            git commit -m "Weekly review ${{ steps.marker.outputs.run_date }} (alerts=${{ steps.marker.outputs.alert_count }})"
+            git push
+          fi
+
+      - name: Create review issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const md = fs.readFileSync('weekly_review.md', 'utf8');
+            const marker = JSON.parse(fs.readFileSync('weekly_review.json', 'utf8'));
+            const alertTag = marker.has_alerts ? '🚨 ALERT ' : '';
+            const title = `${alertTag}[Weekly Review ${marker.run_date}] rolling Sharpe + PnL summary`;
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: title,
+              body: md + '\n\n_See `rolling_sharpe.png` and `cumulative_pnl.png` in repo for charts._',
+              labels: marker.has_alerts ? ['weekly-review', 'alert'] : ['weekly-review']
+            });
+            core.notice(`Weekly review issue created (alerts=${marker.alert_count})`);
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "Run date: ${{ steps.marker.outputs.run_date }}"
+          echo "Alerts: ${{ steps.marker.outputs.alert_count }}"
+          echo "Has alerts: ${{ steps.marker.outputs.has_alerts }}"
