@@ -1,0 +1,11 @@
+{
+  "run_date": "2026-05-27",
+  "skipped": false,
+  "trades_count": 1,
+  "net_pnl_cny": 33326,
+  "winners": 1,
+  "futures": [
+    "IM"
+  ],
+  "signal_issue_title": "[Signal 2026-05-27] IM 触发 (1/4)"
+}

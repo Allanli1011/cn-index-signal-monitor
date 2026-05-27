@@ -1,0 +1,2 @@
+run_date_bj,strategy,futures,underlying,us_signal,us_ret_pct,threshold_pct,side,friction_bps,entry_open,exit_close,intraday_high,intraday_low,gross_ret_pct,net_ret_pct,gross_pnl_cny,net_pnl_cny,friction_cny,n_contracts,notional_per_contract_cny,mfe_pct,mae_pct
+2026-05-27,IM_fade_short,IM,中证1000,NDX,1.185,1.0,-1,6.0,8613.0,8441.2,8664.8,8388.0,1.9947,1.9347,34359,33326,1033,1,1722600,2.6123,0.6014

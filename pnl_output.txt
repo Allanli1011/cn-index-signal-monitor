@@ -1,0 +1,10 @@
+======================================================================
+Post-Market PnL Report — 2026-05-27
+======================================================================
+
+Trades closed: 1 | Winners: 1 | Net PnL: +33,326 CNY | Friction paid: 1,033 CNY
+
+  ✅ IM  (IM_fade_short     )  open= 8613.00  close= 8441.20  ret=+1.935%  PnL=+33,326 CNY  (qty=1)
+
+Intraday MFE/MAE (max favorable / adverse move):
+  IM   MFE=+2.61%  MAE=+0.60%
