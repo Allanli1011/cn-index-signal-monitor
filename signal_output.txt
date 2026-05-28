@@ -1,27 +1,21 @@
 ======================================================================
 A-Share Index Futures Signal Report
-Run date (Beijing): 2026-05-27
+Run date (Beijing): 2026-05-28
 Capital basis: 1,000,000 CNY
 ======================================================================
 
 --- Latest US session ---
-  SPX  @ 2026-05-26  close=   7519.12  ret_cc= +0.61%  age=1d
-  NDX  @ 2026-05-26  close=  26656.18  ret_cc= +1.19%  age=1d
+  SPX  @ 2026-05-27  close=   7520.36  ret_cc= +0.02%  age=1d
+  NDX  @ 2026-05-27  close=  26674.73  ret_cc= +0.07%  age=1d
 
---- Signal summary: 1 / 4 triggered ---
-  🔴 IM (中证1000): SHORT_AT_OPEN  qty=1 手  trigger=NDX=+1.19% ≥ 1.0%
+--- Signal summary: 0 / 4 triggered ---
+  ✗ NO SIGNALS TODAY — stay flat
 
 --- Full strategy table ---
- rank      strategy futures underlying us_signal    us_date   us_close  us_ret_pct  threshold_pct  triggered        action  n_contracts_suggested  margin_per_contract_cny
-    1 IH_fade_short      IH       上证50       NDX 2026-05-26 26656.1797       1.185            2.0      False      NO_TRADE                      0                   121500
-    2 IF_fade_short      IF      沪深300       NDX 2026-05-26 26656.1797       1.185            2.0      False      NO_TRADE                      0                   189000
-    3 IC_fade_short      IC      中证500       SPX 2026-05-26  7519.1201       0.611            1.5      False      NO_TRADE                      0                   214200
-    4 IM_fade_short      IM     中证1000       NDX 2026-05-26 26656.1797       1.185            1.0       True SHORT_AT_OPEN                      1                   252000
-
---- Execution plan ---
-  Total margin required: 252,000 CNY (25.2% of capital)
-  Entry: A-share open (09:30 Beijing) via 集合竞价
-  Exit:  A-share close (15:00 Beijing) 集合竞价平今
-  Stop:  设硬止损 = 开仓价 × 1.005 (亏 0.5% 强平)
+ rank      strategy futures underlying us_signal    us_date   us_close  us_ret_pct  threshold_pct  triggered   action  n_contracts_suggested  margin_per_contract_cny
+    1 IH_fade_short      IH       上证50       NDX 2026-05-27 26674.7344       0.070            2.0      False NO_TRADE                      0                   121500
+    2 IF_fade_short      IF      沪深300       NDX 2026-05-27 26674.7344       0.070            2.0      False NO_TRADE                      0                   189000
+    3 IC_fade_short      IC      中证500       SPX 2026-05-27  7520.3599       0.016            1.5      False NO_TRADE                      0                   214200
+    4 IM_fade_short      IM     中证1000       NDX 2026-05-27 26674.7344       0.070            1.0      False NO_TRADE                      0                   252000
 
 ======================================================================
