@@ -1,0 +1,64 @@
+{
+  "run_date": "2026-06-12",
+  "has_alerts": false,
+  "alert_count": 0,
+  "alerts_by_strategy": {},
+  "summary": [
+    {
+      "strategy": "IH_fade_short",
+      "futures": "IH",
+      "n_trades": 1,
+      "hit_rate": 0.0,
+      "mean_ret_bps": -184.47,
+      "realised_sharpe": null,
+      "rolling_sharpe_30": null,
+      "historical_sharpe": 0.76,
+      "cum_pnl_cny": -31504,
+      "last10_pnl_cny": -31504,
+      "worst_pnl_cny": -31504,
+      "best_pnl_cny": -31504
+    },
+    {
+      "strategy": "IF_fade_short",
+      "futures": "IF",
+      "n_trades": 1,
+      "hit_rate": 0.0,
+      "mean_ret_bps": -52.88,
+      "realised_sharpe": null,
+      "rolling_sharpe_30": null,
+      "historical_sharpe": 0.68,
+      "cum_pnl_cny": -7376,
+      "last10_pnl_cny": -7376,
+      "worst_pnl_cny": -7376,
+      "best_pnl_cny": -7376
+    },
+    {
+      "strategy": "IC_fade_short",
+      "futures": "IC",
+      "n_trades": 1,
+      "hit_rate": 1.0,
+      "mean_ret_bps": 9.74,
+      "realised_sharpe": null,
+      "rolling_sharpe_30": null,
+      "historical_sharpe": 0.49,
+      "cum_pnl_cny": 1584,
+      "last10_pnl_cny": 1584,
+      "worst_pnl_cny": 1584,
+      "best_pnl_cny": 1584
+    },
+    {
+      "strategy": "IM_fade_short",
+      "futures": "IM",
+      "n_trades": 2,
+      "hit_rate": 1.0,
+      "mean_ret_bps": 125.97,
+      "realised_sharpe": 8.347,
+      "rolling_sharpe_30": null,
+      "historical_sharpe": 0.74,
+      "cum_pnl_cny": 42976,
+      "last10_pnl_cny": 42976,
+      "worst_pnl_cny": 9650,
+      "best_pnl_cny": 33326
+    }
+  ]
+}
