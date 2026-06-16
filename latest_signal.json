@@ -1,12 +1,83 @@
 {
-  "run_date": "2026-06-15",
+  "run_date": "2026-06-16",
   "skipped": false,
-  "triggered_count": 0,
-  "triggered_strategies": [],
-  "triggered_futures": [],
-  "triggered_details": [],
+  "triggered_count": 4,
+  "triggered_strategies": [
+    "IH_fade_short",
+    "IF_fade_short",
+    "IC_fade_short",
+    "IM_fade_short"
+  ],
+  "triggered_futures": [
+    "IH",
+    "IF",
+    "IC",
+    "IM"
+  ],
+  "triggered_details": [
+    {
+      "strategy": "IH_fade_short",
+      "futures": "IH",
+      "underlying": "上证50",
+      "us_signal": "NDX",
+      "us_ret_pct": 3.071,
+      "threshold_pct": 2.0,
+      "action": "SHORT_AT_OPEN",
+      "side": -1,
+      "n_contracts": 2,
+      "multiplier": 300,
+      "margin_pct": 0.15,
+      "margin_per_contract_cny": 121500,
+      "friction_bps": 6.0
+    },
+    {
+      "strategy": "IF_fade_short",
+      "futures": "IF",
+      "underlying": "沪深300",
+      "us_signal": "NDX",
+      "us_ret_pct": 3.071,
+      "threshold_pct": 2.0,
+      "action": "SHORT_AT_OPEN",
+      "side": -1,
+      "n_contracts": 1,
+      "multiplier": 300,
+      "margin_pct": 0.15,
+      "margin_per_contract_cny": 189000,
+      "friction_bps": 6.0
+    },
+    {
+      "strategy": "IC_fade_short",
+      "futures": "IC",
+      "underlying": "中证500",
+      "us_signal": "SPX",
+      "us_ret_pct": 1.653,
+      "threshold_pct": 1.5,
+      "action": "SHORT_AT_OPEN",
+      "side": -1,
+      "n_contracts": 1,
+      "multiplier": 200,
+      "margin_pct": 0.17,
+      "margin_per_contract_cny": 214200,
+      "friction_bps": 6.0
+    },
+    {
+      "strategy": "IM_fade_short",
+      "futures": "IM",
+      "underlying": "中证1000",
+      "us_signal": "NDX",
+      "us_ret_pct": 3.071,
+      "threshold_pct": 1.0,
+      "action": "SHORT_AT_OPEN",
+      "side": -1,
+      "n_contracts": 1,
+      "multiplier": 200,
+      "margin_pct": 0.18,
+      "margin_per_contract_cny": 252000,
+      "friction_bps": 6.0
+    }
+  ],
   "us_returns": {
-    "SPX": 0.503,
-    "NDX": 0.307
+    "SPX": 1.653,
+    "NDX": 3.071
   }
 }
