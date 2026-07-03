@@ -1,4 +1,4 @@
-## Weekly Review — 2026-06-26
+## Weekly Review — 2026-07-03
 
 _Window: rolling Sharpe over last 30 trades; loss-streak window 10 trades; decay alert if realised < 50% of historical_
 
@@ -7,9 +7,9 @@ _Window: rolling Sharpe over last 30 trades; loss-streak window 10 trades; decay
 ### Performance summary
 | Strategy | Trades | Hit % | Mean bps | Realised Sharpe | Rolling Sharpe | Historical | Cum PnL | Last10 PnL | Alerts |
 |----------|--------|-------|----------|----------------|---------------|------------|---------|-----------|--------|
-| IH_fade_short | 2 | 50.0% | -51.8 | -1.031 | — | 0.76 | -17,427 | -17,427 | — |
-| IF_fade_short | 2 | 50.0% | -14.0 | -0.949 | — | 0.68 | -3,797 | -3,797 | — |
+| IH_fade_short | 3 | 33.3% | -61.6 | -1.724 | — | 0.76 | -31,676 | -31,676 | — |
+| IF_fade_short | 3 | 33.3% | -57.1 | -2.536 | — | 0.68 | -24,399 | -24,399 | — |
 | IC_fade_short | 2 | 50.0% | -42.0 | -2.148 | — | 0.49 | -13,800 | -13,800 | — |
-| IM_fade_short | 4 | 75.0% | +31.6 | 1.432 | — | 0.74 | +22,402 | +22,402 | — |
+| IM_fade_short | 6 | 50.0% | -25.4 | -1.026 | -1.026 | 0.74 | -23,973 | -23,973 | — |
 
 _Charts: rolling_sharpe.png + cumulative_pnl.png in repo_
