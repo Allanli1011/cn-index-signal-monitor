@@ -1,12 +1,12 @@
 ======================================================================
 A-Share Index Futures Signal Report
-Run date (Beijing): 2026-07-03
+Run date (Beijing): 2026-07-06
 Capital basis: 1,000,000 CNY
 ======================================================================
 
 --- Latest US session ---
-  SPX  @ 2026-07-02  close=   7483.24  ret_cc= +0.00%  age=1d
-  NDX  @ 2026-07-02  close=  25832.67  ret_cc= -0.80%  age=1d
+  SPX  @ 2026-07-02  close=   7483.24  ret_cc= +0.00%  age=4d
+  NDX  @ 2026-07-02  close=  25832.67  ret_cc= -0.80%  age=4d
 
 --- Signal summary: 0 / 4 triggered ---
   ✗ NO SIGNALS TODAY — stay flat
