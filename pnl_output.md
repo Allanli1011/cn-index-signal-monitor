@@ -1,9 +1,9 @@
-## Post-Market PnL — 2026-07-07
+## Post-Market PnL — 2026-07-10
 
-**🟢 Net PnL: +22,971 CNY  |  Trades: 1  |  Winners: 1/1**
+**🟢 Net PnL: +23,183 CNY  |  Trades: 1  |  Winners: 1/1**
 
 | Futures | Strategy | Open | Close | Net Ret | PnL (CNY) | Qty | MFE | MAE |
 |---------|----------|------|-------|---------|-----------|-----|-----|-----|
-| ✅ **IM** | IM_fade_short | 8235.00 | 8115.20 | +1.395% | +22,971 | 1 | +2.02% | +0.48% |
+| ✅ **IM** | IM_fade_short | 8140.20 | 8019.40 | +1.424% | +23,183 | 1 | +1.53% | +1.28% |
 
-_Friction paid: 988 CNY  |  Total notional: 1,647,000 CNY_
+_Friction paid: 976 CNY  |  Total notional: 1,628,040 CNY_
