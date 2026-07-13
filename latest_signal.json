@@ -1,32 +1,12 @@
 {
-  "run_date": "2026-07-10",
+  "run_date": "2026-07-13",
   "skipped": false,
-  "triggered_count": 1,
-  "triggered_strategies": [
-    "IM_fade_short"
-  ],
-  "triggered_futures": [
-    "IM"
-  ],
-  "triggered_details": [
-    {
-      "strategy": "IM_fade_short",
-      "futures": "IM",
-      "underlying": "中证1000",
-      "us_signal": "NDX",
-      "us_ret_pct": 1.3,
-      "threshold_pct": 1.0,
-      "action": "SHORT_AT_OPEN",
-      "side": -1,
-      "n_contracts": 1,
-      "multiplier": 200,
-      "margin_pct": 0.18,
-      "margin_per_contract_cny": 252000,
-      "friction_bps": 6.0
-    }
-  ],
+  "triggered_count": 0,
+  "triggered_strategies": [],
+  "triggered_futures": [],
+  "triggered_details": [],
   "us_returns": {
-    "SPX": 0.814,
-    "NDX": 1.3
+    "SPX": 0.421,
+    "NDX": 0.285
   }
 }
