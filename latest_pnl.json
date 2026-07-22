@@ -1,11 +1,11 @@
 {
-  "run_date": "2026-07-10",
+  "run_date": "2026-07-22",
   "skipped": false,
   "trades_count": 1,
-  "net_pnl_cny": 23183,
+  "net_pnl_cny": 22982,
   "winners": 1,
   "futures": [
     "IM"
   ],
-  "signal_issue_title": "[Signal 2026-07-10] IM 触发 (1/4)"
+  "signal_issue_title": "[Signal 2026-07-22] IM 触发 (1/4)"
 }
