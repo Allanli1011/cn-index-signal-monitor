@@ -1,21 +1,21 @@
 ======================================================================
 A-Share Index Futures Signal Report
-Run date (Beijing): 2026-07-23
+Run date (Beijing): 2026-07-24
 Capital basis: 1,000,000 CNY
 ======================================================================
 
 --- Latest US session ---
-  SPX  @ 2026-07-22  close=   7498.96  ret_cc= -0.14%  age=1d
-  NDX  @ 2026-07-22  close=  25690.90  ret_cc= -0.57%  age=1d
+  SPX  @ 2026-07-22  close=   7498.96  ret_cc= -0.14%  age=2d
+  NDX  @ 2026-07-23  close=  25137.69  ret_cc= -2.15%  age=1d
 
 --- Signal summary: 0 / 4 triggered ---
   ✗ NO SIGNALS TODAY — stay flat
 
 --- Full strategy table ---
  rank      strategy futures underlying us_signal    us_date   us_close  us_ret_pct  threshold_pct  triggered   action  n_contracts_suggested  margin_per_contract_cny
-    1 IH_fade_short      IH       上证50       NDX 2026-07-22 25690.9023      -0.566            2.0      False NO_TRADE                      0                   121500
-    2 IF_fade_short      IF      沪深300       NDX 2026-07-22 25690.9023      -0.566            2.0      False NO_TRADE                      0                   189000
+    1 IH_fade_short      IH       上证50       NDX 2026-07-23 25137.6934      -2.153            2.0      False NO_TRADE                      0                   121500
+    2 IF_fade_short      IF      沪深300       NDX 2026-07-23 25137.6934      -2.153            2.0      False NO_TRADE                      0                   189000
     3 IC_fade_short      IC      中证500       SPX 2026-07-22  7498.9600      -0.136            1.5      False NO_TRADE                      0                   214200
-    4 IM_fade_short      IM     中证1000       NDX 2026-07-22 25690.9023      -0.566            1.0      False NO_TRADE                      0                   252000
+    4 IM_fade_short      IM     中证1000       NDX 2026-07-23 25137.6934      -2.153            1.0      False NO_TRADE                      0                   252000
 
 ======================================================================
