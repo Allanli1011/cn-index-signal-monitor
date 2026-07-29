@@ -1,21 +1,21 @@
 ======================================================================
 A-Share Index Futures Signal Report
-Run date (Beijing): 2026-07-28
+Run date (Beijing): 2026-07-29
 Capital basis: 1,000,000 CNY
 ======================================================================
 
 --- Latest US session ---
-  SPX  @ 2026-07-24  close=   7411.98  ret_cc= +0.05%  age=4d
-  NDX  @ 2026-07-27  close=  24932.08  ret_cc= -0.18%  age=1d
+  SPX  @ 2026-07-28  close=   7428.78  ret_cc= +0.21%  age=1d
+  NDX  @ 2026-07-28  close=  24876.91  ret_cc= -0.22%  age=1d
 
 --- Signal summary: 0 / 4 triggered ---
   ✗ NO SIGNALS TODAY — stay flat
 
 --- Full strategy table ---
- rank      strategy futures underlying us_signal    us_date  us_close  us_ret_pct  threshold_pct  triggered   action  n_contracts_suggested  margin_per_contract_cny
-    1 IH_fade_short      IH       上证50       NDX 2026-07-27 24932.082      -0.175            2.0      False NO_TRADE                      0                   121500
-    2 IF_fade_short      IF      沪深300       NDX 2026-07-27 24932.082      -0.175            2.0      False NO_TRADE                      0                   189000
-    3 IC_fade_short      IC      中证500       SPX 2026-07-24  7411.980       0.050            1.5      False NO_TRADE                      0                   214200
-    4 IM_fade_short      IM     中证1000       NDX 2026-07-27 24932.082      -0.175            1.0      False NO_TRADE                      0                   252000
+ rank      strategy futures underlying us_signal    us_date   us_close  us_ret_pct  threshold_pct  triggered   action  n_contracts_suggested  margin_per_contract_cny
+    1 IH_fade_short      IH       上证50       NDX 2026-07-28 24876.9121      -0.221            2.0      False NO_TRADE                      0                   121500
+    2 IF_fade_short      IF      沪深300       NDX 2026-07-28 24876.9121      -0.221            2.0      False NO_TRADE                      0                   189000
+    3 IC_fade_short      IC      中证500       SPX 2026-07-28  7428.7798       0.210            1.5      False NO_TRADE                      0                   214200
+    4 IM_fade_short      IM     中证1000       NDX 2026-07-28 24876.9121      -0.221            1.0      False NO_TRADE                      0                   252000
 
 ======================================================================
