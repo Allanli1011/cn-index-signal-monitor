@@ -1,25 +1,27 @@
 ======================================================================
 A-Share Index Futures Signal Report
-Run date (Beijing): 2026-08-03
+Run date (Beijing): 2026-08-04
 Capital basis: 1,000,000 CNY
 ======================================================================
 
 --- Latest US session ---
-  SPX  @ 2026-07-31  close=   7489.72  ret_cc= +0.70%  age=3d
-  NDX  @ 2026-07-31  close=  25373.85  ret_cc= +1.00%  age=3d
+  SPX  @ 2026-08-03  close=   7600.50  ret_cc= +1.48%  age=1d
+  NDX  @ 2026-08-03  close=  25913.90  ret_cc= +2.13%  age=1d
 
---- Signal summary: 1 / 4 triggered ---
-  🔴 IM (中证1000): SHORT_AT_OPEN  qty=1 手  trigger=NDX=+1.00% ≥ 1.0%
+--- Signal summary: 3 / 4 triggered ---
+  🔴 IH (上证50): SHORT_AT_OPEN  qty=2 手  trigger=NDX=+2.13% ≥ 2.0%
+  🔴 IF (沪深300): SHORT_AT_OPEN  qty=1 手  trigger=NDX=+2.13% ≥ 2.0%
+  🔴 IM (中证1000): SHORT_AT_OPEN  qty=1 手  trigger=NDX=+2.13% ≥ 1.0%
 
 --- Full strategy table ---
  rank      strategy futures underlying us_signal    us_date   us_close  us_ret_pct  threshold_pct  triggered        action  n_contracts_suggested  margin_per_contract_cny
-    1 IH_fade_short      IH       上证50       NDX 2026-07-31 25373.8535       1.002            2.0      False      NO_TRADE                      0                   121500
-    2 IF_fade_short      IF      沪深300       NDX 2026-07-31 25373.8535       1.002            2.0      False      NO_TRADE                      0                   189000
-    3 IC_fade_short      IC      中证500       SPX 2026-07-31  7489.7202       0.700            1.5      False      NO_TRADE                      0                   214200
-    4 IM_fade_short      IM     中证1000       NDX 2026-07-31 25373.8535       1.002            1.0       True SHORT_AT_OPEN                      1                   252000
+    1 IH_fade_short      IH       上证50       NDX 2026-08-03 25913.8965       2.128            2.0       True SHORT_AT_OPEN                      2                   121500
+    2 IF_fade_short      IF      沪深300       NDX 2026-08-03 25913.8965       2.128            2.0       True SHORT_AT_OPEN                      1                   189000
+    3 IC_fade_short      IC      中证500       SPX 2026-08-03  7600.5000       1.479            1.5      False      NO_TRADE                      0                   214200
+    4 IM_fade_short      IM     中证1000       NDX 2026-08-03 25913.8965       2.128            1.0       True SHORT_AT_OPEN                      1                   252000
 
 --- Execution plan ---
-  Total margin required: 252,000 CNY (25.2% of capital)
+  Total margin required: 684,000 CNY (68.4% of capital)
   Entry: A-share open (09:30 Beijing) via 集合竞价
   Exit:  A-share close (15:00 Beijing) 集合竞价平今
   Stop:  设硬止损 = 开仓价 × 1.005 (亏 0.5% 强平)
