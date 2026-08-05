@@ -1,15 +1,17 @@
 {
-  "run_date": "2026-08-04",
+  "run_date": "2026-08-05",
   "skipped": false,
-  "triggered_count": 3,
+  "triggered_count": 4,
   "triggered_strategies": [
     "IH_fade_short",
     "IF_fade_short",
+    "IC_fade_short",
     "IM_fade_short"
   ],
   "triggered_futures": [
     "IH",
     "IF",
+    "IC",
     "IM"
   ],
   "triggered_details": [
@@ -18,7 +20,7 @@
       "futures": "IH",
       "underlying": "上证50",
       "us_signal": "NDX",
-      "us_ret_pct": 2.128,
+      "us_ret_pct": 2.59,
       "threshold_pct": 2.0,
       "action": "SHORT_AT_OPEN",
       "side": -1,
@@ -33,7 +35,7 @@
       "futures": "IF",
       "underlying": "沪深300",
       "us_signal": "NDX",
-      "us_ret_pct": 2.128,
+      "us_ret_pct": 2.59,
       "threshold_pct": 2.0,
       "action": "SHORT_AT_OPEN",
       "side": -1,
@@ -44,11 +46,26 @@
       "friction_bps": 6.0
     },
     {
+      "strategy": "IC_fade_short",
+      "futures": "IC",
+      "underlying": "中证500",
+      "us_signal": "SPX",
+      "us_ret_pct": 1.79,
+      "threshold_pct": 1.5,
+      "action": "SHORT_AT_OPEN",
+      "side": -1,
+      "n_contracts": 1,
+      "multiplier": 200,
+      "margin_pct": 0.17,
+      "margin_per_contract_cny": 214200,
+      "friction_bps": 6.0
+    },
+    {
       "strategy": "IM_fade_short",
       "futures": "IM",
       "underlying": "中证1000",
       "us_signal": "NDX",
-      "us_ret_pct": 2.128,
+      "us_ret_pct": 2.59,
       "threshold_pct": 1.0,
       "action": "SHORT_AT_OPEN",
       "side": -1,
@@ -60,7 +77,7 @@
     }
   ],
   "us_returns": {
-    "SPX": 1.479,
-    "NDX": 2.128
+    "SPX": 1.79,
+    "NDX": 2.59
   }
 }
