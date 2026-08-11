@@ -1,21 +1,21 @@
 ======================================================================
 A-Share Index Futures Signal Report
-Run date (Beijing): 2026-08-11
+Run date (Beijing): 2026-08-12
 Capital basis: 1,000,000 CNY
 ======================================================================
 
 --- Latest US session ---
-  SPX  @ 2026-08-07  close=   7757.64  ret_cc= +0.62%  age=4d
-  NDX  @ 2026-08-10  close=  26605.36  ret_cc= -0.32%  age=1d
+  SPX  @ 2026-08-11  close=   7728.20  ret_cc= -0.32%  age=1d
+  NDX  @ 2026-08-11  close=  26445.45  ret_cc= -0.60%  age=1d
 
 --- Signal summary: 0 / 4 triggered ---
   ✗ NO SIGNALS TODAY — stay flat
 
 --- Full strategy table ---
  rank      strategy futures underlying us_signal    us_date   us_close  us_ret_pct  threshold_pct  triggered   action  n_contracts_suggested  margin_per_contract_cny
-    1 IH_fade_short      IH       上证50       NDX 2026-08-10 26605.3574      -0.319            2.0      False NO_TRADE                      0                   121500
-    2 IF_fade_short      IF      沪深300       NDX 2026-08-10 26605.3574      -0.319            2.0      False NO_TRADE                      0                   189000
-    3 IC_fade_short      IC      中证500       SPX 2026-08-07  7757.6401       0.618            1.5      False NO_TRADE                      0                   214200
-    4 IM_fade_short      IM     中证1000       NDX 2026-08-10 26605.3574      -0.319            1.0      False NO_TRADE                      0                   252000
+    1 IH_fade_short      IH       上证50       NDX 2026-08-11 26445.4453      -0.601            2.0      False NO_TRADE                      0                   121500
+    2 IF_fade_short      IF      沪深300       NDX 2026-08-11 26445.4453      -0.601            2.0      False NO_TRADE                      0                   189000
+    3 IC_fade_short      IC      中证500       SPX 2026-08-11  7728.2002      -0.321            1.5      False NO_TRADE                      0                   214200
+    4 IM_fade_short      IM     中证1000       NDX 2026-08-11 26445.4453      -0.601            1.0      False NO_TRADE                      0                   252000
 
 ======================================================================
