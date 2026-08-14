@@ -1,5 +1,5 @@
 {
-  "run_date": "2026-08-07",
+  "run_date": "2026-08-14",
   "has_alerts": true,
   "alert_count": 1,
   "alerts_by_strategy": {
@@ -53,14 +53,14 @@
     {
       "strategy": "IM_fade_short",
       "futures": "IM",
-      "n_trades": 12,
-      "hit_rate": 0.5,
-      "mean_ret_bps": -22.68,
-      "realised_sharpe": -0.826,
-      "rolling_sharpe_30": -0.826,
+      "n_trades": 13,
+      "hit_rate": 0.538,
+      "mean_ret_bps": -19.22,
+      "realised_sharpe": -0.729,
+      "rolling_sharpe_30": -0.729,
       "historical_sharpe": 0.74,
-      "cum_pnl_cny": -35188,
-      "last10_pnl_cny": -78164,
+      "cum_pnl_cny": -31784,
+      "last10_pnl_cny": -50852,
       "worst_pnl_cny": -46344,
       "best_pnl_cny": 33326
     }
