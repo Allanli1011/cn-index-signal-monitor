@@ -1,12 +1,12 @@
-## A-Share Index Futures Signal — 2026-08-26
+## A-Share Index Futures Signal — 2026-08-27
 
 **Capital basis:** 1,000,000 CNY
 
 ### Latest US session
 | Index | Date | Close | Return | Age |
 |-------|------|-------|--------|-----|
-| SPX | 2026-08-24 | 7652.86 | -0.28% | 2d |
-| NDX | 2026-08-24 | 25980.19 | -0.76% | 2d |
+| SPX | 2026-08-26 | 7675.70 | -0.02% | 1d |
+| NDX | 2026-08-26 | 26130.20 | -0.08% | 1d |
 
 ### Signals triggered: **0 / 4**
 
@@ -15,7 +15,7 @@
 ### Full strategy table
 | Rank | Strategy | Futures | US sig | US ret | Thr | Trig | Notes |
 |------|----------|---------|--------|--------|-----|------|-------|
-| 1 | IH_fade_short | IH | NDX | -0.77% | 2.0% | ❌ | 最稳; 10年里8年正收益; 大盘金融蓝筹反应最强 |
-| 2 | IF_fade_short | IF | NDX | -0.77% | 2.0% | ❌ | 次稳; 与 IH 同信号但反应弱; |
-| 3 | IC_fade_short | IC | SPX | -0.28% | 1.5% | ❌ | 用 SPX 阈值低; 2021-2023 连亏需警惕 |
-| 4 | IM_fade_short | IM | NDX | -0.77% | 1.0% | ❌ | 样本仅5年; 2024年贡献全部收益; 高波动 |
+| 1 | IH_fade_short | IH | NDX | -0.08% | 2.0% | ❌ | 最稳; 10年里8年正收益; 大盘金融蓝筹反应最强 |
+| 2 | IF_fade_short | IF | NDX | -0.08% | 2.0% | ❌ | 次稳; 与 IH 同信号但反应弱; |
+| 3 | IC_fade_short | IC | SPX | -0.02% | 1.5% | ❌ | 用 SPX 阈值低; 2021-2023 连亏需警惕 |
+| 4 | IM_fade_short | IM | NDX | -0.08% | 1.0% | ❌ | 样本仅5年; 2024年贡献全部收益; 高波动 |
