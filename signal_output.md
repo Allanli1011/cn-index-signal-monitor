@@ -1,12 +1,12 @@
-## A-Share Index Futures Signal — 2026-09-07
+## A-Share Index Futures Signal — 2026-09-08
 
 **Capital basis:** 1,000,000 CNY
 
 ### Latest US session
 | Index | Date | Close | Return | Age |
 |-------|------|-------|--------|-----|
-| SPX | 2026-09-04 | 7718.60 | -0.38% | 3d |
-| NDX | 2026-09-04 | 26506.99 | -0.29% | 3d |
+| SPX | 2026-09-04 | 7718.60 | -0.38% | 4d |
+| NDX | 2026-09-04 | 26506.99 | -0.29% | 4d |
 
 ### Signals triggered: **0 / 4**
 
