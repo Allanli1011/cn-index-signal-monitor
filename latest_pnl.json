@@ -1,11 +1,13 @@
 {
-  "run_date": "2026-09-18",
+  "run_date": "2026-09-22",
   "skipped": false,
-  "trades_count": 1,
-  "net_pnl_cny": -17051,
-  "winners": 0,
+  "trades_count": 3,
+  "net_pnl_cny": 7405,
+  "winners": 2,
   "futures": [
+    "IH",
+    "IF",
     "IM"
   ],
-  "signal_issue_title": "[Signal 2026-09-18] IM 触发 (1/4)"
+  "signal_issue_title": "[Signal 2026-09-22] IH+IF+IM 触发 (3/4)"
 }
