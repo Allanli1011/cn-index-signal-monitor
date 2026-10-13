@@ -1,12 +1,12 @@
 {
-  "run_date": "2026-10-12",
+  "run_date": "2026-10-13",
   "skipped": false,
   "triggered_count": 0,
   "triggered_strategies": [],
   "triggered_futures": [],
   "triggered_details": [],
   "us_returns": {
-    "SPX": 0.595,
-    "NDX": 0.636
+    "SPX": -0.055,
+    "NDX": -0.439
   }
 }
