@@ -1,8 +1,12 @@
 {
-  "run_date": "2026-10-16",
-  "has_alerts": false,
-  "alert_count": 0,
-  "alerts_by_strategy": {},
+  "run_date": "2026-10-23",
+  "has_alerts": true,
+  "alert_count": 1,
+  "alerts_by_strategy": {
+    "IM_fade_short": [
+      "RECENT_LOSS_STREAK"
+    ]
+  },
   "summary": [
     {
       "strategy": "IH_fade_short",
@@ -49,16 +53,16 @@
     {
       "strategy": "IM_fade_short",
       "futures": "IM",
-      "n_trades": 16,
-      "hit_rate": 0.562,
-      "mean_ret_bps": -5.82,
-      "realised_sharpe": -0.226,
-      "rolling_sharpe_30": -0.226,
+      "n_trades": 18,
+      "hit_rate": 0.556,
+      "mean_ret_bps": 4.47,
+      "realised_sharpe": 0.165,
+      "rolling_sharpe_30": 0.165,
       "historical_sharpe": 0.74,
-      "cum_pnl_cny": -7388,
-      "last10_pnl_cny": 16585,
+      "cum_pnl_cny": 15941,
+      "last10_pnl_cny": -6240,
       "worst_pnl_cny": -46344,
-      "best_pnl_cny": 33326
+      "best_pnl_cny": 38879
     }
   ]
 }
