@@ -1,4 +1,4 @@
-## Weekly Review — 2026-10-31
+## Weekly Review — 2026-11-07
 
 _Window: rolling Sharpe over last 30 trades; loss-streak window 10 trades; decay alert if realised < 50% of historical_
 
